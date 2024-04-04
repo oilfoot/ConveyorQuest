@@ -1,0 +1,25 @@
+{
+  "levels": [
+    {
+      "level": 0,
+      "newBaseSpawnInterval": 1,
+      "newBaseSpawnSpeeds": [ 5, 5, 5 ],
+      "newIsActive": [ true, true, true ],
+      "newSimultaneousSpawnChance": 0.5
+    },
+    {
+      "level": 1,
+      "newBaseSpawnInterval": 1,
+      "newBaseSpawnSpeeds": [ 8, 8, 8 ],
+      "newIsActive": [ true, true, true ],
+      "newSimultaneousSpawnChance": 1
+    },
+    {
+      "level": 2,
+      "newBaseSpawnInterval": 1.5,
+      "newBaseSpawnSpeeds": [ 10, 10, 10 ],
+      "newIsActive": [ true, true, true ],
+      "newSimultaneousSpawnChance": 0.4
+    }
+  ]
+}

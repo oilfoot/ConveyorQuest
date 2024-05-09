@@ -1,0 +1,611 @@
+fileFormatVersion: 2
+guid: b3970c62eefccce4889de4f2f43a540f
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Cargos_0
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 70
+        width: 26
+        height: 26
+      alignment: 9
+      pivot: {x: 0.8846154, y: 0.23076925}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27181025f25d9104bba10c7f3a2e19b6
+      internalID: -2094495375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cargos_1
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 70
+        width: 26
+        height: 26
+      alignment: 9
+      pivot: {x: 0.8846154, y: 0.23076925}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b9d0be159da38943b207ba9ea4e6fa7
+      internalID: -132051698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cargos_2
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 70
+        width: 26
+        height: 26
+      alignment: 9
+      pivot: {x: 0.8846154, y: 0.23076925}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 003623a6e347b5a4ca0e7c02e1fde981
+      internalID: -147677668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cargos_3
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 46
+        width: 26
+        height: 20
+      alignment: 9
+      pivot: {x: 0.8846154, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d58a9dc91b6c37f41be092d0a3418fc5
+      internalID: -1678394305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cargos_4
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 46
+        width: 26
+        height: 20
+      alignment: 9
+      pivot: {x: 0.8846154, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9bd968e20fc4d44da13f6e929d9d338
+      internalID: 257362210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cargos_5
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 46
+        width: 26
+        height: 22
+      alignment: 9
+      pivot: {x: 0.8846154, y: 0.27272728}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30055ca6f70548e4295c2b100b5a285e
+      internalID: -324609326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cargos_6
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 46
+        width: 26
+        height: 23
+      alignment: 9
+      pivot: {x: 0.8846154, y: 0.26086956}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d1b10d51a1771244acc7e045dd659d4
+      internalID: 1606305575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cargos_7
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 46
+        width: 26
+        height: 23
+      alignment: 9
+      pivot: {x: 0.8846154, y: 0.26086956}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e08e8db317315a4d9571ba951b57886
+      internalID: -1525400406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cargos_8
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 46
+        width: 26
+        height: 22
+      alignment: 9
+      pivot: {x: 0.8846154, y: 0.27272728}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da5fba3882242ba4b8132455436c49e0
+      internalID: -1452262758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cargos_9
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 23
+        width: 26
+        height: 20
+      alignment: 9
+      pivot: {x: 0.8846154, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c7dfd8a44cdded46b145ceacc9788ba
+      internalID: 609880689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cargos_10
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 23
+        width: 26
+        height: 20
+      alignment: 9
+      pivot: {x: 0.8846154, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 249b10447a8ca0f4fb8902b8fabc3bfa
+      internalID: -1961139199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cargos_11
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 23
+        width: 26
+        height: 21
+      alignment: 9
+      pivot: {x: 0.8846154, y: 0.2857143}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68825a82d8b03c241b1d40dc200992ba
+      internalID: -1265741988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cargos_12
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 23
+        width: 26
+        height: 22
+      alignment: 9
+      pivot: {x: 0.8846154, y: 0.27272728}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28ef62277c2abdf4fbc1db4fd2e23a59
+      internalID: -1249009949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cargos_13
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 23
+        width: 26
+        height: 22
+      alignment: 9
+      pivot: {x: 0.8846154, y: 0.27272728}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d9b9926e003acc41bab184ab2d55be2
+      internalID: -1642063862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cargos_14
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 23
+        width: 26
+        height: 21
+      alignment: 9
+      pivot: {x: 0.8846154, y: 0.2857143}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b848f770344b8645978e4122605bf2f
+      internalID: 1073204697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cargos_15
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 0
+        width: 26
+        height: 21
+      alignment: 9
+      pivot: {x: 0.8846154, y: 0.2857143}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cd382b849e978043934dc0d115894e6
+      internalID: -1771091441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cargos_16
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 0
+        width: 26
+        height: 19
+      alignment: 9
+      pivot: {x: 0.8846154, y: 0.31578946}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b212b9cb6868dc749b8f959ce8c49f44
+      internalID: 825330866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cargos_17
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 0
+        width: 26
+        height: 21
+      alignment: 9
+      pivot: {x: 0.8846154, y: 0.2857143}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77dd292d9034da74ea20db5842f7552f
+      internalID: -950168960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cargos_18
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 0
+        width: 26
+        height: 21
+      alignment: 9
+      pivot: {x: 0.8846154, y: 0.2857143}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2066d01a60f42045a858957e020c4bb
+      internalID: 1639656180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cargos_19
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 0
+        width: 26
+        height: 21
+      alignment: 9
+      pivot: {x: 0.8846154, y: 0.2857143}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7233e9ce6ecbddd4da5bcb8772351674
+      internalID: -653009693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cargos_20
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 0
+        width: 26
+        height: 21
+      alignment: 9
+      pivot: {x: 0.8846154, y: 0.2857143}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a571bab89575d80409d88084d6a426d6
+      internalID: -269418690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cargos_21
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 0
+        width: 26
+        height: 14
+      alignment: 9
+      pivot: {x: 0.8846154, y: 0.42857146}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6389afa275736f439eb18550f97dedf
+      internalID: 634904850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Cargos_0: -2094495375
+      Cargos_1: -132051698
+      Cargos_10: -1961139199
+      Cargos_11: -1265741988
+      Cargos_12: -1249009949
+      Cargos_13: -1642063862
+      Cargos_14: 1073204697
+      Cargos_15: -1771091441
+      Cargos_16: 825330866
+      Cargos_17: -950168960
+      Cargos_18: 1639656180
+      Cargos_19: -653009693
+      Cargos_2: -147677668
+      Cargos_20: -269418690
+      Cargos_21: 634904850
+      Cargos_3: -1678394305
+      Cargos_4: 257362210
+      Cargos_5: -324609326
+      Cargos_6: 1606305575
+      Cargos_7: -1525400406
+      Cargos_8: -1452262758
+      Cargos_9: 609880689
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

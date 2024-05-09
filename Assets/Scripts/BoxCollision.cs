@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class BoxCollision : MonoBehaviour
 {
+    public GameObject spawnPrefab; // Reference to the prefab to spawn
     private ScoreManager scoreManager; // Reference to the ScoreManager script
 
     private void Start()
@@ -22,8 +23,22 @@ public class BoxCollision : MonoBehaviour
             scoreManager.AddScore(10);
         }
 
+        // Check if the trigger collision is with an object tagged as "player"
         if (other.CompareTag("player"))
         {
+            // Spawn the prefab at the same position
+            GameObject spawnedObject = Instantiate(spawnPrefab, transform.position, Quaternion.identity);
+
+            // Get the Rigidbody of the spawned prefab
+            Rigidbody2D spawnedRigidbody = spawnedObject.GetComponent<Rigidbody2D>();
+
+            // Transfer the velocity from the box to the spawned prefab
+            Rigidbody2D boxRigidbody = GetComponent<Rigidbody2D>();
+            if (boxRigidbody != null && spawnedRigidbody != null)
+            {
+                spawnedRigidbody.velocity = boxRigidbody.velocity;
+            }
+
             // Destroy the GameObject
             Destroy(gameObject);
         }

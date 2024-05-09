@@ -8,6 +8,11 @@ TagManager:
   - obstacle
   - player
   - audio
+  - cnvr1
+  - cnvr2
+  - cnvr3
+  - SpawnedBackground
+  - BGDestroyer
   layers:
   - Default
   - TransparentFX

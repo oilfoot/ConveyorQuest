@@ -1,10 +1,13 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
     public Transform[] lines; // Array to hold the positions of the lines
     public AudioClip swooshSound; // Sound to play when moving up or down
+    public float moveUpDelay = 1.5f;
     private int currentLineIndex = 1; // Index of the current line the player is on
+    [SerializeField] public int currentLineNumber; // Public variable to determine the current line number
     private AudioSource audioSource; // Reference to the AudioSource component
 
     void Start()
@@ -30,7 +33,8 @@ public class PlayerController : MonoBehaviour
         // If the player is not already on the top line and the line above is active, move up
         if (currentLineIndex > 0 && lines[currentLineIndex - 1].gameObject.activeSelf)
         {
-            currentLineIndex--;
+            StartCoroutine(UpdateCurrentLineNumberCoroutine()); // Start the coroutine
+            currentLineIndex--; // Move the player up immediately
             transform.position = lines[currentLineIndex].position;
             PlaySwooshSound();
         }
@@ -43,8 +47,20 @@ public class PlayerController : MonoBehaviour
         {
             currentLineIndex++;
             transform.position = lines[currentLineIndex].position;
+            UpdateCurrentLineNumber();
             PlaySwooshSound();
         }
+    }
+
+    void UpdateCurrentLineNumber()
+    {
+        currentLineNumber = currentLineIndex + 1;
+    }
+
+    IEnumerator UpdateCurrentLineNumberCoroutine()
+    {
+        yield return new WaitForSeconds(moveUpDelay);
+        UpdateCurrentLineNumber();
     }
 
     void PlaySwooshSound()

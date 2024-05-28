@@ -13,6 +13,11 @@ TagManager:
   - cnvr3
   - SpawnedBackground
   - BGDestroyer
+  - BGStart
+  - BGEnd
+  - Bomb
+  - Smoke
+  - Hammer
   layers:
   - Default
   - TransparentFX

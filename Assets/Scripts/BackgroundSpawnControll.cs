@@ -32,12 +32,15 @@ public class BackgroundSpawnControll : MonoBehaviour
 
         foreach (GameObject prefab in prefabs)
         {
+            // Move based on fixed delta time to keep consistent movement
             prefab.transform.Translate(Vector3.left * moveSpeed * Time.fixedDeltaTime);
-            if (prefab.transform.position.x <= -32f)
+            if (prefab.transform.position.x < -32f)
             {
+                float newXPosition = 32f; // Adjust this if necessary to ensure alignment
                 Destroy(prefab);
-                SpawnPrefab(new Vector3(respawnXPosition, 0f, 0f));
+                SpawnPrefab(new Vector3(newXPosition, 0f, 0f));
             }
         }
     }
+
 }

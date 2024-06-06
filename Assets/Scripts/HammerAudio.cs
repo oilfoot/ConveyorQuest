@@ -6,6 +6,7 @@ public class HammerAudio : MonoBehaviour
 {
     [SerializeField] AudioSource SFXSource;
     public AudioClip HammerHit;
+    public AudioClip HammerPoint;
     private ScoreManager scoreManager;
 
     void Start()
@@ -19,6 +20,7 @@ public class HammerAudio : MonoBehaviour
         if (HammerHit != null)
         {
             SFXSource.PlayOneShot(HammerHit);
+            SFXSource.PlayOneShot(HammerPoint);
             if (scoreManager != null)
             {
                 scoreManager.AddScore(10); // Increase score by 10

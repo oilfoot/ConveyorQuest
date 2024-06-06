@@ -6,9 +6,10 @@ public class SpawnPointChecker : MonoBehaviour
     public ParticleSystem particleEffectPrefab1; // First particle effect prefab
     public ParticleSystem particleEffectPrefab2; // Second particle effect prefab
     public Transform[] particleSpawnPoints;
+    public GameObject gameObjectPrefab; // The GameObject prefab to potentially spawn
     public float particleMoveSpeed = 1f; // Adjustable speed value
-
     public float particleSpawnInterval = 2f;
+    public float gameObjectSpawnChance = 0.5f; // Chance to spawn the GameObject prefab (0 to 1)
     private float nextParticleSpawnTime;
 
     // Start is called before the first frame update
@@ -58,11 +59,27 @@ public class SpawnPointChecker : MonoBehaviour
             // Add a component to move the second particle
             ParticleMover mover2 = particleInstance2.gameObject.AddComponent<ParticleMover>();
             mover2.speed = particleMoveSpeed;
+
+            // Check if we should spawn the GameObject prefab
+            if (Random.value <= gameObjectSpawnChance)
+            {
+                SpawnGameObjectAt(particleSpawnPoints[index].position, particleMoveSpeed);
+            }
         }
         else
         {
             Debug.LogWarning("Particle spawn point index out of range!");
         }
+    }
+
+    private void SpawnGameObjectAt(Vector3 position, float speed)
+    {
+        // Instantiate the GameObject prefab at the specified position
+        GameObject gameObjectInstance = Instantiate(gameObjectPrefab, position, Quaternion.identity);
+
+        // Add a component to move the GameObject
+        GameObjectMover gameObjectMover = gameObjectInstance.AddComponent<GameObjectMover>();
+        gameObjectMover.speed = speed;
     }
 
     private class ParticleMover : MonoBehaviour
@@ -72,6 +89,17 @@ public class SpawnPointChecker : MonoBehaviour
         void Update()
         {
             // Move the particle to the left
+            transform.Translate(Vector3.left * speed * Time.deltaTime);
+        }
+    }
+
+    private class GameObjectMover : MonoBehaviour
+    {
+        public float speed;
+
+        void Update()
+        {
+            // Move the GameObject to the left
             transform.Translate(Vector3.left * speed * Time.deltaTime);
         }
     }

@@ -5,6 +5,7 @@ public class UIHandler : MonoBehaviour
 {
     public GameObject gameOverUI; // Reference to the UI GameObject to be activated when game is over
     public GameHandler gameHandler; // Reference to the GameHandler script
+    public GameObject requiredGameObject; // Reference to the GameObject that needs to be active
 
     void Update()
     {
@@ -19,11 +20,25 @@ public class UIHandler : MonoBehaviour
             // Ensure the game over UI is deactivated if game is still active
             gameOverUI.SetActive(false);
         }
+
+        // Check if the F5 key is pressed
+        if (Input.GetKeyDown(KeyCode.F5))
+        {
+            // Reload the current scene
+            ButtonRestart();
+        }
     }
 
     // Method to handle button click to restart the game
     public void ButtonRestart()
     {
+        // Check if the requiredGameObject is active
+        if (!requiredGameObject.activeInHierarchy)
+        {
+            Debug.LogWarning("Required GameObject is not active. Restart aborted.");
+            return;
+        }
+
         // Reload the current scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }

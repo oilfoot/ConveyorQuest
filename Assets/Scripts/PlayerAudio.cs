@@ -9,6 +9,7 @@ public class PlayerAudio : MonoBehaviour
     public AudioClip hurtSound;
     public AudioClip swooshSound;
     public AudioClip explosionSound;
+    public AudioClip gameOverSound;
 
     public void PlayHurtSound()
     {
@@ -41,6 +42,18 @@ public class PlayerAudio : MonoBehaviour
         if (explosionSound != null)
         {
             SFXSource.PlayOneShot(explosionSound);
+        }
+        else
+        {
+            Debug.LogWarning("Explosion sound clip is not assigned!");
+        }
+    }
+
+    public void PlayGameOverSound()
+    {
+        if (explosionSound != null)
+        {
+            SFXSource.PlayOneShot(gameOverSound);
         }
         else
         {

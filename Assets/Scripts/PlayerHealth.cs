@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
     private AudioSource audioSource; // Reference to the AudioSource component
     public AudioClip hurtSound; // Sound to play when player is hurt
     public AudioClip explosionSound; // Sound to play when player dies
+    public AudioClip gameOverSound;
 
     public GameObject[] healthObjects; // Array to hold the health-related game objects
     public GameObject deathEffectPrefab; // Prefab for death effect
@@ -35,7 +36,7 @@ public class PlayerHealth : MonoBehaviour
         }
         if (other.CompareTag("Bomb"))
         {
-            TakeDamage(3, 8f, 0.2f); // Example values, adjust as needed
+            TakeDamage(3, 16f, 0.5f); // Example values, adjust as needed
         }
     }
 
@@ -74,6 +75,7 @@ public class PlayerHealth : MonoBehaviour
         {
             // Play explosion sound
             audioSource.PlayOneShot(explosionSound);
+            audioSource.PlayOneShot(gameOverSound);
         }
 
         Debug.Log("Player died!");

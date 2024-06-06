@@ -15,14 +15,28 @@ public class DisplayScore : MonoBehaviour
         LoadScores();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+        {
+            LoadGameScene();
+        }
+    }
+
     public void LoadScores()
     {
-        string filePath = "Prefs/score"; // Path to your score file
-        TextAsset textFile = Resources.Load<TextAsset>(filePath);
+        // Determine the file path
+        string filePath;
 
-        if (textFile != null)
+#if UNITY_EDITOR
+        filePath = Path.Combine(Application.dataPath, "Resources/Prefs/score.txt");
+#else
+        filePath = Path.Combine(Application.dataPath, "score.txt");
+#endif
+
+        if (File.Exists(filePath))
         {
-            string[] lines = textFile.text.Split('\n');
+            string[] lines = File.ReadAllLines(filePath);
             List<string> playerNames = new List<string>();
             List<int> scores = new List<int>();
 
@@ -73,6 +87,6 @@ public class DisplayScore : MonoBehaviour
 
     public void LoadGameScene()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("IntroScene");
     }
 }

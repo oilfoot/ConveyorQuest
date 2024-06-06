@@ -6,18 +6,23 @@ public class DisplayLevel : MonoBehaviour
     public SpawnController spawnController; // Reference to the SpawnController script
     public GameHandler gameHandler; // Reference to the GameHandler script
     public TextMeshProUGUI textToFade; // Reference to the TMP text component you want to fade
+    public GameObject secondObjectToFade; // Reference to the second GameObject you want to fade
     public float fadeDuration = 1f; // Duration of the fade effect
     public float displayDuration = 2f; // Duration for which the text is displayed before fading out
     public float fadeInDelay = 1f; // Delay before starting the fade-in process
+    public LevelAudio levelAudio; // Reference to the LevelAudio script
 
     private bool isFading = false; // Flag to track if fading is in progress
     private float fadeTimer = 0f; // Timer for the fade effect
     private float displayTimer = 0f; // Timer for the display duration
     private Color originalColor; // Original color of the text
+    private Material secondObjectMaterial; // Material of the second GameObject
+    private Color secondOriginalColor; // Original color of the second object
     private bool previousStopAllSpawning = false; // Track previous state of StopAllSpawning
-    private int currentLevel = 1; // Start from Level 2
+    private int currentLevel = 1; // Start from Level 1
     private bool isDelayActive = false; // Flag to check if delay is active
     private float delayTimer = 0f; // Timer for the delay
+    private bool newHighscore = false; // Flag to check if new highscore is set
 
     // Start is called before the first frame update
     void Start()
@@ -43,11 +48,32 @@ public class DisplayLevel : MonoBehaviour
             return;
         }
 
+        // Check if the LevelAudio reference is assigned
+        if (levelAudio == null)
+        {
+            Debug.LogError("LevelAudio reference not assigned in DisplayLevel script!");
+            return;
+        }
+
+        // Ensure secondObjectToFade is not null
+        if (secondObjectToFade == null)
+        {
+            Debug.LogError("Second object to fade is not assigned in DisplayLevel script!");
+            return;
+        }
+
         // Store the original color of the text and set initial alpha to 0 (fully transparent)
         originalColor = textToFade.color;
         Color transparentColor = originalColor;
         transparentColor.a = 0f;
         textToFade.color = transparentColor;
+
+        // Store the original color of the second object and set initial alpha to 0 (fully transparent)
+        secondObjectMaterial = secondObjectToFade.GetComponent<Renderer>().material;
+        secondOriginalColor = secondObjectMaterial.color;
+        Color secondTransparentColor = secondOriginalColor;
+        secondTransparentColor.a = 0f;
+        secondObjectMaterial.color = secondTransparentColor;
 
         // Display the initial level text if the game is active
         if (gameHandler.gameActive)
@@ -84,7 +110,7 @@ public class DisplayLevel : MonoBehaviour
         // Perform fading effect if isFading is true
         if (isFading)
         {
-            FadeText();
+            FadeTextAndObject();
         }
     }
 
@@ -101,12 +127,25 @@ public class DisplayLevel : MonoBehaviour
         isFading = true;
         fadeTimer = 0f;
         displayTimer = 0f; // Reset display timer
-        textToFade.text = "Level " + currentLevel; // Set the text to the current level
-        currentLevel++; // Increment the level for the next time
+
+        // Set the text based on the current state
+        if (newHighscore)
+        {
+            textToFade.text = "New Highscore";
+            newHighscore = false; // Reset the flag
+        }
+        else
+        {
+            textToFade.text = "Level " + currentLevel; // Set the text to the current level
+            currentLevel++; // Increment the level for the next time
+        }
+
+        // Play the level sound
+        levelAudio.PlayLevelSound();
     }
 
     // Method to perform fading effect
-    private void FadeText()
+    private void FadeTextAndObject()
     {
         // Increment timers
         fadeTimer += Time.deltaTime;
@@ -115,6 +154,7 @@ public class DisplayLevel : MonoBehaviour
             // Fade in phase
             float alpha = Mathf.Clamp01(fadeTimer / fadeDuration);
             SetTextAlpha(alpha);
+            SetObjectAlpha(alpha);
         }
         else
         {
@@ -126,6 +166,7 @@ public class DisplayLevel : MonoBehaviour
                 float fadeOutTime = fadeTimer - fadeDuration - displayDuration;
                 float alpha = Mathf.Clamp01(1f - (fadeOutTime / fadeDuration));
                 SetTextAlpha(alpha);
+                SetObjectAlpha(alpha);
 
                 if (fadeOutTime >= fadeDuration)
                 {
@@ -142,5 +183,20 @@ public class DisplayLevel : MonoBehaviour
         Color color = originalColor;
         color.a = alpha;
         textToFade.color = color;
+    }
+
+    // Helper method to set the object alpha
+    private void SetObjectAlpha(float alpha)
+    {
+        Color color = secondOriginalColor;
+        color.a = alpha;
+        secondObjectMaterial.color = color;
+    }
+
+    // Public method to trigger new highscore display
+    public void DisplayNewHighscore()
+    {
+        newHighscore = true;
+        StartFadeIn();
     }
 }

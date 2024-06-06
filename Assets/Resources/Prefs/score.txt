@@ -1,3 +1,11 @@
 8560;Fritz
 200;John
 2800;Stink
+60;Input Test
+0;SaveTest
+50;Intro Test
+3320;IntroTest2
+11230;Fritz
+550;Spieler
+30;KeybindTest
+0;

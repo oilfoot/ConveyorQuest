@@ -12,30 +12,18 @@ public class SelectTMPInputField : MonoBehaviour
 
     void Update()
     {
-        // Check if the F7 key is pressed and the requiredGameObject is active
-        if (Input.GetKeyDown(KeyCode.F7) && requiredGameObject.activeInHierarchy)
+        // Check if the L1 button on the PS4 controller is pressed and the requiredGameObject is active
+        if (Input.GetKeyDown(KeyCode.JoystickButton4) && requiredGameObject.activeInHierarchy)
         {
             // Select the input field if it's not null
             if (inputField != null)
             {
                 inputField.Select();
-
-                // Open the on-screen keyboard
-                OpenOnScreenKeyboard();
             }
             else
             {
                 Debug.LogWarning("TMP_InputField is not assigned in the Inspector.");
             }
         }
-    }
-
-    void OpenOnScreenKeyboard()
-    {
-        // Start the on-screen keyboard process
-        Process oskProcess = new Process();
-        oskProcess.StartInfo.FileName = "osk.exe";
-        oskProcess.StartInfo.UseShellExecute = true;
-        oskProcess.Start();
     }
 }

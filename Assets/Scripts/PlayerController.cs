@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public int currentLineNumber; // Public variable to determine the current line number
     private AudioSource audioSource; // Reference to the AudioSource component
 
+    private bool isMoving = false; // Flag to prevent rapid movement
+    private bool inputReleased = true; // Flag to check if the input has been released
+
     void Start()
     {
         audioSource = GameObject.FindGameObjectWithTag("audio").GetComponentInChildren<AudioSource>();
@@ -18,37 +21,54 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // Check for input to move the player up or down
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        float verticalInput = Input.GetAxis("Vertical");
+
+        if (!isMoving && inputReleased)
         {
-            MoveUp();
+            if (verticalInput > 0.5f)
+            {
+                StartCoroutine(MoveUp());
+            }
+            else if (verticalInput < -0.5f)
+            {
+                StartCoroutine(MoveDown());
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
+
+        // Reset inputReleased flag when the joystick is neutral
+        if (Mathf.Abs(verticalInput) < 0.1f)
         {
-            MoveDown();
+            inputReleased = true;
         }
     }
 
-    void MoveUp()
+    IEnumerator MoveUp()
     {
-        // If the player is not already on the top line and the line above is active, move up
         if (currentLineIndex > 0 && lines[currentLineIndex - 1].gameObject.activeSelf)
         {
+            isMoving = true; // Set flag to prevent rapid movement
+            inputReleased = false; // Mark input as consumed
             StartCoroutine(UpdateCurrentLineNumberCoroutine()); // Start the coroutine
             currentLineIndex--; // Move the player up immediately
             transform.position = lines[currentLineIndex].position;
             PlaySwooshSound();
+            yield return new WaitForSeconds(moveUpDelay); // Wait for the delay
+            isMoving = false; // Reset flag
         }
     }
 
-    void MoveDown()
+    IEnumerator MoveDown()
     {
-        // If the player is not already on the bottom line and the line below is active, move down
         if (currentLineIndex < lines.Length - 1 && lines[currentLineIndex + 1].gameObject.activeSelf)
         {
+            isMoving = true; // Set flag to prevent rapid movement
+            inputReleased = false; // Mark input as consumed
             currentLineIndex++;
             transform.position = lines[currentLineIndex].position;
             UpdateCurrentLineNumber();
             PlaySwooshSound();
+            yield return new WaitForSeconds(moveUpDelay); // Wait for the delay
+            isMoving = false; // Reset flag
         }
     }
 

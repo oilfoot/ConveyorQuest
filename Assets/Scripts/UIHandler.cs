@@ -21,12 +21,8 @@ public class UIHandler : MonoBehaviour
             gameOverUI.SetActive(false);
         }
 
-        // Check if the F5 key is pressed
-        if (Input.GetKeyDown(KeyCode.F5))
-        {
-            // Reload the current scene
-            ButtonRestart();
-        }
+        // Check if the Square button on the PS4 controller is pressed
+        
     }
 
     // Method to handle button click to restart the game

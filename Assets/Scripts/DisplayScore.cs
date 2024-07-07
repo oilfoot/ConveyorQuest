@@ -9,6 +9,7 @@ public class DisplayScore : MonoBehaviour
 {
     public TextMeshProUGUI playerNameText;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI timestampText; // Add this line to declare a new TMP object for timestamps
 
     private void Start()
     {
@@ -17,7 +18,7 @@ public class DisplayScore : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+        if (Input.GetKeyDown(KeyCode.JoystickButton1) || Input.GetKeyDown(KeyCode.JoystickButton2))
         {
             LoadGameScene();
         }
@@ -39,16 +40,25 @@ public class DisplayScore : MonoBehaviour
             string[] lines = File.ReadAllLines(filePath);
             List<string> playerNames = new List<string>();
             List<int> scores = new List<int>();
+            List<string> timestamps = new List<string>(); // Add this line to declare a list for timestamps
+            HashSet<string> uniqueEntries = new HashSet<string>(); // Add this line to declare a HashSet for unique entries
 
             foreach (string line in lines)
             {
                 string[] parts = line.Trim().Split(';');
-                if (parts.Length == 2)
+                if (parts.Length == 3) // Update the condition to check for three parts
                 {
                     int score = int.Parse(parts[0]);
                     string playerName = parts[1].Trim();
-                    playerNames.Add(playerName);
-                    scores.Add(score);
+                    string timestamp = parts[2].Trim(); // Add this line to parse the timestamp
+                    string entry = $"{score};{playerName};{timestamp}";
+
+                    if (uniqueEntries.Add(entry)) // Add this line to check if the entry is unique
+                    {
+                        playerNames.Add(playerName);
+                        scores.Add(score);
+                        timestamps.Add(timestamp); // Add this line to add the timestamp to the list
+                    }
                 }
             }
 
@@ -57,9 +67,15 @@ public class DisplayScore : MonoBehaviour
             {
                 int tempScore = PlayerPrefs.GetInt("TempScore");
                 string tempPlayerName = PlayerPrefs.GetString("TempPlayerName");
+                string tempTimestamp = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"); // Add this line to get the current timestamp
+                string tempEntry = $"{tempScore};{tempPlayerName};{tempTimestamp}";
 
-                playerNames.Add(tempPlayerName);
-                scores.Add(tempScore);
+                if (uniqueEntries.Add(tempEntry)) // Add this line to check if the temp entry is unique
+                {
+                    playerNames.Add(tempPlayerName);
+                    scores.Add(tempScore);
+                    timestamps.Add(tempTimestamp); // Add this line to add the temporary timestamp to the list
+                }
 
                 // Clear the temporary score
                 PlayerPrefs.DeleteKey("TempScore");
@@ -67,17 +83,21 @@ public class DisplayScore : MonoBehaviour
                 PlayerPrefs.Save();
             }
 
-            // Sorting player names and scores by scores in descending order
-            var sortedScores = scores.OrderByDescending(x => x).ToList();
-            var sortedPlayerNames = playerNames
-                .Select((name, index) => new { name, score = scores[index] })
+            // Sorting player names, scores, and timestamps by scores in descending order
+            var sortedEntries = playerNames
+                .Select((name, index) => new { name, score = scores[index], timestamp = timestamps[index] })
                 .OrderByDescending(x => x.score)
-                .Select(x => x.name)
+                .Take(12) // Add this line to take only the top 12 entries
                 .ToList();
 
-            // Displaying sorted scores and player names
+            var sortedPlayerNames = sortedEntries.Select(x => x.name).ToList();
+            var sortedScores = sortedEntries.Select(x => x.score).ToList();
+            var sortedTimestamps = sortedEntries.Select(x => x.timestamp).ToList();
+
+            // Displaying sorted scores, player names, and timestamps
             playerNameText.text = string.Join("\n", sortedPlayerNames);
             scoreText.text = string.Join("\n", sortedScores);
+            timestampText.text = string.Join("\n", sortedTimestamps); // Add this line to display the timestamps
         }
         else
         {

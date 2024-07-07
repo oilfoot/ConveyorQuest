@@ -10,13 +10,9 @@ public class ScoreSaver : MonoBehaviour
     public GameObject requiredGameObject; // Reference to the GameObject that needs to be active
 
     // Function to read out the score as an integer
-
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F6))
-        {
-            SaveScore();
-        }
+
     }
 
     public int GetScore()
@@ -44,10 +40,12 @@ public class ScoreSaver : MonoBehaviour
 
         string playerName = GetPlayerName();
         int score = GetScore();
+        string currentDate = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
-        // Store the score and name in PlayerPrefs
+        // Store the score, name, and date in PlayerPrefs
         PlayerPrefs.SetInt("TempScore", score);
         PlayerPrefs.SetString("TempPlayerName", playerName);
+        PlayerPrefs.SetString("TempDate", currentDate);
         PlayerPrefs.Save();
 
         // Determine the file path
@@ -68,12 +66,12 @@ public class ScoreSaver : MonoBehaviour
 
         filePath = Path.Combine(directoryPath, "score.txt");
 
-        // Write the player's score and name to the text file
+        // Write the player's score, name, and date to the text file
         try
         {
             using (StreamWriter writer = new StreamWriter(filePath, true)) // Append mode
             {
-                writer.WriteLine(score + ";" + playerName);
+                writer.WriteLine(score + ";" + playerName + ";" + currentDate);
             }
             Debug.Log("Score saved successfully.");
         }
